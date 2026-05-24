@@ -1,0 +1,24 @@
+{
+  "name": "comanda-digital-backend",
+  "version": "1.0.0",
+  "description": "Sistema de Pedidos para Dark Kitchen\r **UNASP SP | Desenvolvimento Full-Stack (G01371.1) | Prof. Thiago Silva | 2026/1**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArturJasb/comanda-digital-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ArturJasb/comanda-digital-backend/issues"
+  },
+  "homepage": "https://github.com/ArturJasb/comanda-digital-backend#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
