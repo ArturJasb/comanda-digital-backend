@@ -14,11 +14,14 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        // Permite o front Angular local. Para producao, ajustar para o dominio real.
-        config.setAllowedOrigins(List.of(
+
+        // Aceita localhost (dev) e qualquer subdominio do Vercel (producao)
+        config.setAllowedOriginPatterns(List.of(
                 "http://localhost:4200",
-                "http://127.0.0.1:4200"
+                "http://127.0.0.1:4200",
+                "https://*.vercel.app"
         ));
+
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("Authorization", "Content-Disposition"));
