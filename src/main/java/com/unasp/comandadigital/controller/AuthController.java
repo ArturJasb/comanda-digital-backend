@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+
+@CrossOrigin(origins = "https://comanda-digital-frontend-ten.vercel.app"/) // URL da Vercel
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
@@ -27,7 +30,7 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     @Operation(summary = "Login -- retorna JWT")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
