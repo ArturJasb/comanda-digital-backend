@@ -63,3 +63,6 @@ allure-results/
 
 # OS
 *~
+node_modules/
+package.json
+package-lock.json

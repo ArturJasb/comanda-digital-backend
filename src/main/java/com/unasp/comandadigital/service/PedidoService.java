@@ -85,7 +85,14 @@ public class PedidoService {
         pedido.setValorTotal(total);
 
         // Cascade ALL salva pedido + itens em uma unica chamada (sem double save)
-        return PedidoResponse.from(pedidoRepository.save(pedido));
+        Pedido salvo = pedidoRepository.save(pedido);
+// Auto: RECEBIDO → CONFIRMADO → EM_PREPARO ao confirmar pagamento
+estoqueService.baixarEstoquePorPedido(salvo);
+salvo.setStatus(StatusPedido.CONFIRMADO);
+salvo = pedidoRepository.save(salvo);
+salvo.setStatus(StatusPedido.EM_PREPARO);
+salvo = pedidoRepository.save(salvo);
+return PedidoResponse.from(salvo);
     }
 
     public Page<PedidoResponse> listarMeusPedidos(String emailCliente, Pageable pageable) {
