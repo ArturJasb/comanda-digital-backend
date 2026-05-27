@@ -162,4 +162,11 @@ public class FornecedorService {
         return fornecedorRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
     }
+
+    public FornecedorResponse reativar(Long id) {
+        Fornecedor fornecedor = fornecedorRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Fornecedor não encontrado"));
+        fornecedor.setStatus("ATIVO");
+        return FornecedorResponse.from(fornecedorRepository.save(fornecedor));
+    }
 }

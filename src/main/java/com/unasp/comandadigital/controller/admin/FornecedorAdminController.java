@@ -93,4 +93,9 @@ public class FornecedorAdminController {
     public ResponseEntity<List<FornecedorProdutoResponse>> cotacao(@PathVariable Long ingredienteId) {
         return ResponseEntity.ok(fornecedorService.cotacao(ingredienteId));
     }
+
+    @PatchMapping("/{id}/reativar")
+    public ResponseEntity<FornecedorResponse> reativar(@PathVariable Long id) {
+        return ResponseEntity.ok(fornecedorService.reativar(id));
+    }
 }
