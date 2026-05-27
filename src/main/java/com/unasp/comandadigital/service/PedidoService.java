@@ -87,7 +87,6 @@ public class PedidoService {
         // Cascade ALL salva pedido + itens em uma unica chamada (sem double save)
         Pedido salvo = pedidoRepository.save(pedido);
 // Auto: RECEBIDO → CONFIRMADO → EM_PREPARO ao confirmar pagamento
-estoqueService.baixarEstoquePorPedido(salvo);
 salvo.setStatus(StatusPedido.CONFIRMADO);
 salvo = pedidoRepository.save(salvo);
 salvo.setStatus(StatusPedido.EM_PREPARO);

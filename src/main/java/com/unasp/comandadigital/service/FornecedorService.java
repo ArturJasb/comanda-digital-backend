@@ -166,7 +166,7 @@ public class FornecedorService {
     public FornecedorResponse reativar(Long id) {
         Fornecedor fornecedor = fornecedorRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Fornecedor não encontrado"));
-        fornecedor.setStatus("StatusGeral.ATIVO");
+        fornecedor.setStatus(StatusGeral.ATIVO);
         return FornecedorResponse.from(fornecedorRepository.save(fornecedor));
     }
 }
